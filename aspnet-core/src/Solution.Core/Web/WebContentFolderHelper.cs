@@ -20,6 +20,10 @@ namespace Solution.Web
             }
 
             var directoryInfo = new DirectoryInfo(coreAssemblyDirectoryPath);
+            if (DirectoryContains(directoryInfo.FullName, "appsettings.json"))
+            {
+                return directoryInfo.FullName;
+            }
             while (!DirectoryContains(directoryInfo.FullName, "Solution.sln"))
             {
                 if (directoryInfo.Parent == null)
